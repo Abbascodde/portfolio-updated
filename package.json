@@ -1,0 +1,14 @@
+{
+  "name": "taofeeq-abbas-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Taofeeq Abbas",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css"
+  },
+  "author": "Taofeeq Abbas",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
