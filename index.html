@@ -462,11 +462,34 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').onclick = function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        };
-    </script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Toggle the mobile menu on button click
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close the menu when clicking a link inside it
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', function (event) {
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnButton = menuBtn.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnButton) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
